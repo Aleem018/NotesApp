@@ -11,6 +11,7 @@ export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const router = useRouter();
 
@@ -27,7 +28,7 @@ export default function Signup() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("", {
+            const response = await fetch("http://localhost:5204/api/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,10 +44,13 @@ export default function Signup() {
             setPassword("");
             setConfirmPassword("");
 
+            setShowSuccess(true);
+            setTimeout(() => setShowSuccess(false), 3000);
+
             router.refresh();
         } catch (error) {
             console.error("Failed to post data:", error);
-            alert("Failed to create note.");
+            alert("Failed to register user.");
         } finally {
             setIsSubmitting(false);
         }
@@ -124,6 +128,11 @@ export default function Signup() {
                     {isSubmitting ? "Submitting..." : "Sign Up"}
                 </button>
             </form>
+            {showSuccess && (
+                <div className="fixed top-5 right-5 bg-green-500 text-white px-6 py-3 rounded shadow-xl transition-opacity">
+                    Account created successfully!
+                </div>
+            )}
         </div>
 
     )

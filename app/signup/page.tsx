@@ -58,16 +58,16 @@ export default function Signup() {
 
     return (
 
-        <div className="border flex flex-col gap-7 p-20 bg-white mx-auto my-auto rounded-xl shadow-xl">
+        <div className="border flex flex-col gap-7 p-12 sm:p-20 lg:p-20 bg-white mx-auto my-auto rounded-xl shadow-xl">
             <div className="flex flex-col gap-3">
-                <h1 className="text-black text-center text-2xl font-bold">
+                <h1 className="text-black text-center text-xl sm:text-2xl lg:text-2xl font-bold">
                     Create an Account
                 </h1>
-                <p className="text-zinc-600 text-center">To create your personal notes effortlessly</p>
+                <p className="text-zinc-600 text-center text-sm sm:text-base lg:text-base">To create your personal notes effortlessly</p>
             </div>
 
             <form onSubmit={handleSubmit}
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-3 sm:gap-5 lg:gap-5"
             >
                 <input
                     type="email"
@@ -77,7 +77,7 @@ export default function Signup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="border border-zinc-300 h-10 p-3 text-black rounded-sm"
+                    className="border border-zinc-300 h-8 p-2 w-65 sm:h-10 sm:p-3 sm:w-full lg:h-10 lg:p-3 lg:w-full text-black rounded-sm"
                 />
                 <div className="flex items-center gap-8">
                     <input
@@ -88,7 +88,7 @@ export default function Signup() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="border border-zinc-300 h-10 p-3 text-black rounded-sm"
+                        className="border border-zinc-300 h-8 p-2 sm:h-10 sm:p-3 lg:h-10 lg:p-3 text-black rounded-sm"
                     />
                     <button
                         type="button"
@@ -108,7 +108,7 @@ export default function Signup() {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
-                        className="border border-zinc-300 h-10 p-3 text-black rounded-sm"
+                        className="border border-zinc-300 h-8 p-2 sm:h-10 sm:p-3 lg:h-10 lg:p-3 text-black rounded-sm"
                     />
                     <button
                         type="button"

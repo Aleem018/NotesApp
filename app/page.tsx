@@ -27,11 +27,19 @@ export default function Home() {
 
             if (!response.ok) {
                 throw new Error(`Server responded with ${response.status}`);
+            } else
+            {
+                const data: { token: string } = await response.json();
+
+                localStorage.setItem('jwt', data.token); //To save the jwt to the browser's Local Storage
+                console.log("Token saves successfully!");
+
+                
             }
 
             setEmail("");
             setPassword("");
-
+            router.push("/notes");
             router.refresh();
         } catch (error) {
             console.error("Failed to post data", error);

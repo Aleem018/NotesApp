@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { TbNotebook } from 'react-icons/tb';
+import { saveToken } from "./actions";
 
 export default function Home() {
     const [email, setEmail] = useState("");
@@ -31,9 +32,8 @@ export default function Home() {
             {
                 const data: { token: string } = await response.json();
 
-                localStorage.setItem('jwt', data.token); //To save the jwt to the browser's Local Storage
+                await saveToken(data.token);
                 console.log("Token saves successfully!");
-
                 
             }
 

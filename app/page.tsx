@@ -11,11 +11,14 @@ export default function Home() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError("");
 
         try {
             const response = await fetch("http://localhost:5204/api/auth/login", {
@@ -27,21 +30,21 @@ export default function Home() {
                 body: JSON.stringify({ Email: email, Password: password }),
             });
 
-            if (!response.ok) {
-                throw new Error(`Server responded with ${response.status}`);
-            } else
-            {
-                const data: { token: string } = await response.json();
-
-                await saveToken(data.token);
-                console.log("Token saves successfully!");
-                
+            if (response.ok) {
+                router.push("/notes");
+                setShowSuccess(true);
+                setTimeout(() => setShowSuccess(false), 3000);
+                router.refresh();
+                return;
             }
 
-            setEmail("");
-            setPassword("");
-            router.push("/notes");
-            router.refresh();
+            if (response.status === 404){
+                alert("You do not have an account");
+                router.push("/signup");
+                return;
+            }
+
+            setError("Invalid email or password");
         } catch (error) {
             console.error("Failed to post data", error);
             alert("Failed to login");
@@ -53,7 +56,7 @@ export default function Home() {
         <div className="flex bg-white mx-auto my-auto shadow-xl rounded-lg">
             <div className="flex flex-col p-5 bg-[url('/ceo1.jpg')] bg-cover bg-center bg-no-repeat rounded-l-lg">
                 <div className="flex items-center gap-1">
-                    <TbNotebook className="text-xl"/>
+                    <TbNotebook className="text-xl" />
                     <h1 className="text-white text-xl">
                         Noteus
                     </h1>
@@ -117,6 +120,11 @@ export default function Home() {
                     <Link href="/signup" className="text-blue-800 hover:text-violet-600">Sign Up</Link>
                 </div>
             </div>
+            {showSuccess && (
+                <div className="fixed top-5 right-5 bg-green-500 text-white px-6 py-3 rounded shadow-xl transition-opacity">
+                    Logged in successfully!
+                </div>
+            )}
         </div>
     );
 }

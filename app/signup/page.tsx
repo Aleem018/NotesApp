@@ -17,10 +17,8 @@ export default function Signup() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
 
-        if (password !== confirmPassword)
-        {
+        if (password !== confirmPassword) {
             setError('Passwords do not match!');
             return;
         }
@@ -30,24 +28,29 @@ export default function Signup() {
         try {
             const response = await fetch("http://localhost:5204/api/auth/register", {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ Email: email, Password: password }),
             });
 
+            if (response.ok) {
+                router.push("/notes");
+
+                setShowSuccess(true);
+                setTimeout(() => setShowSuccess(false), 3000);
+                router.refresh();
+                return;
+            }
+
             if (!response.ok) {
-                throw new Error(`Server responded with ${response.status}`);
+                setError(await response.text());
             }
 
             setEmail("");
             setPassword("");
             setConfirmPassword("");
-
-            setShowSuccess(true);
-            setTimeout(() => setShowSuccess(false), 3000);
-
-            router.refresh();
         } catch (error) {
             console.error("Failed to post data:", error);
             alert("Failed to register user.");

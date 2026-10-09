@@ -20,6 +20,7 @@ export default function Home() {
         try {
             const response = await fetch("http://localhost:5204/api/auth/login", {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-type": "application/json",
                 },

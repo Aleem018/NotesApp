@@ -18,6 +18,7 @@ export default function CreateNoteForm() {
         try {
             const response = await fetch("http://localhost:5204/api/notesapi", {
                 method: "POST", // This tells the server i'm sending data IMPORTANT
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json", // this tells C# to expect JSON
                 },

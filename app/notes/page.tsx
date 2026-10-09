@@ -12,7 +12,7 @@ interface Note {
 export default async function NotesDisplay() {
 
     const cookieStore = await cookies();
-    const token = cookieStore.get("jwt")?.value;
+    const token = cookieStore.get("token")?.value;
 
     if (!token) 
     {
@@ -25,7 +25,7 @@ export default async function NotesDisplay() {
             'Authorization': `Bearer ${token}`
         }
     });
-    console.log("STATUS:", response.status, response.statusText);
+    console.log("STATUS:", response.status, response.statusText, response.headers.get("www-authenticate"));
 
     if (!response.ok) {
         return <div>Failed to load notes. Your token may be expired.</div>

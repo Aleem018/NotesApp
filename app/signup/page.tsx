@@ -44,9 +44,20 @@ export default function Signup() {
                 return;
             }
 
-            if (!response.ok) {
-                setError(await response.text());
+            const text = await response.text();
+            try
+            {
+                const data = JSON.parse(text);
+                if (data.errors)
+                {
+                    setError(Object.values(data.errors).flat().join(" "));
+                    return;
+                }
+            } catch
+            {
+
             }
+            setError(text);
 
             setEmail("");
             setPassword("");
@@ -80,6 +91,7 @@ export default function Signup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    maxLength={254}
                     className="border border-zinc-300 h-8 p-2 w-65 sm:h-10 sm:p-3 sm:w-full lg:h-10 lg:p-3 lg:w-full text-black 
                     outline-none focus:ring-2 focus:ring-blue-500 focus:border-purple-500 rounded-sm"
                 />
@@ -92,6 +104,8 @@ export default function Signup() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        minLength={8}
+                        maxLength={72}
                         className="border border-zinc-300 h-8 p-2 sm:h-10 sm:p-3 lg:h-10 lg:p-3 text-black 
                         outline-none focus:ring-2 focus:ring-blue-500 focus:border-purple-500 rounded-sm"
                     />

@@ -1,5 +1,6 @@
 import CreateNoteForm from "./form";
 import NoteManager from "./noteManager";
+import LogoutBtn from "./logoutBtn";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -15,8 +16,7 @@ export default async function NotesDisplay() {
     const cookieStore = await cookies();
     const token = cookieStore.get("token")?.value;
 
-    if (!token) 
-    {
+    if (!token) {
         redirect("/login");
     }
 
@@ -28,8 +28,7 @@ export default async function NotesDisplay() {
     });
     console.log("STATUS:", response.status, response.statusText, response.headers.get("www-authenticate"));
 
-    if (response.status === 401)
-    {
+    if (response.status === 401) {
         redirect("/login");
     }
 
@@ -44,7 +43,10 @@ export default async function NotesDisplay() {
 
     return (
         <main>
-            <h1 className="text-3xl font-bold bg-black text-center p-10">Note-taking App</h1>
+            <div className="flex items-center justify-center bg-black p-10">
+                <h1 className="text-3xl font-bold bg-black text-center p-10">Note-taking App</h1>
+                <LogoutBtn />
+            </div>
             <CreateNoteForm />
             <div className="p-8">
 

@@ -110,7 +110,7 @@ export default function Home() {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="bg-blue-700 rounded-3xl h-9 hover:shadow-xl hover:bg-violet-900 disabled:bg-gray-400"
+                        className="bg-blue-700 rounded-3xl h-9 hover:shadow-xl hover:cursor-pointer hover:bg-violet-900 disabled:bg-gray-400"
                     >
                         {isSubmitting ? "Logging you in" : "Log In"}
                     </button>

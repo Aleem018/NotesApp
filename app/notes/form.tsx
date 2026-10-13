@@ -93,7 +93,7 @@ export default function CreateNoteForm() {
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="bg-[#dfff00] h-10 flex items-center text-black justify-center rounded-xl disabled:bg-gray-400"
+                        className="bg-[#dfff00] h-10 hover:cursor-pointer flex items-center text-black justify-center rounded-xl disabled:bg-gray-400"
                     >
                         {isSubmitting ? "Saving..." : "Submit Note"}
                     </button>

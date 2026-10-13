@@ -142,7 +142,7 @@ export default function Signup() {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-blue-600 rounded-3xl h-10 flex items-center justify-center text-black text-xs disabled:bg-gray-400 hover:shadow hover:bg-blue-100"
+                    className="bg-blue-600 rounded-3xl hover:cursor-pointer h-10 flex items-center justify-center text-black text-xs disabled:bg-gray-400 hover:shadow hover:bg-blue-100"
                 >
                     {isSubmitting ? "Submitting..." : "Sign Up"}
                 </button>

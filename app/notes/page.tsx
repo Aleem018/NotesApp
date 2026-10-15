@@ -17,7 +17,7 @@ export default async function NotesDisplay() {
     const token = cookieStore.get("token")?.value;
 
     if (!token) {
-        redirect("/login");
+        redirect("/");
     }
 
     const response = await fetch("http://localhost:5204/api/notesapi", {
@@ -29,7 +29,7 @@ export default async function NotesDisplay() {
     console.log("STATUS:", response.status, response.statusText, response.headers.get("www-authenticate"));
 
     if (response.status === 401) {
-        redirect("/login");
+        redirect("/");
     }
 
     if (!response.ok) {
@@ -50,7 +50,7 @@ export default async function NotesDisplay() {
             <CreateNoteForm />
             <div className="p-8">
 
-                <h1 className="text-3xl font-bold mb-8">Your Notes</h1>
+                <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
 
 
                 <NoteManager notes={notes} />

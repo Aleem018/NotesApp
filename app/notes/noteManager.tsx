@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { LuCalendar, LuClock } from "react-icons/lu";
 
 interface Note {
     id: number;
@@ -39,17 +40,15 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
                 )
             );
 
-            if (responses.some((r) => r.status === 401))
-            {
+            if (responses.some((r) => r.status === 401)) {
                 router.push("/login");
                 return;
             }
             const failed = responses.filter((r) => !r.ok).length;
-            if (failed > 0)
-            {
+            if (failed > 0) {
                 alert(`${failed} note(s) could not be defeated.`);
             }
-            
+
             setSelectedIds([]); //to clear selection after success
             router.refresh(); // to refetch the updated database
         } catch (error) {
@@ -68,7 +67,7 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
                     <button
                         onClick={handleDelete}
                         disabled={isDeleting}
-                        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 disabled:bg-gray-400"
+                        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 hover:cursor-pointer disabled:bg-gray-400"
                     >
                         {isDeleting ? "Deleting..." : `Delete Selected (${selectedIds.length})`}
                     </button>
@@ -80,7 +79,7 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
                 {notes?.map((note) => (
                     <div
                         key={note.id}
-                        className="border p-4 rounded relative"
+                        className="border p-4 rounded-md bg-white relative"
                     >
                         {/* Checkbox for selection */}
                         <input
@@ -89,10 +88,21 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
                             onChange={() => toggleSelection(note.id)}
                             className="absolute top-4 right-4 w-5 h-5 cursor-pointer"
                         />
-                        <div className="flex justify-between">
-                            <h2 className="text-xl font-bold pr-5">{note.title}</h2>
-                            <p className="flex mr-6 text-sm items-center">{new Date(note.createdAt).toLocaleDateString()} . {new Date(note.createdAt).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})}</p>
+
+                        <div className="flex mr-6 pb-2 text-sm justify-between border-b-3 border-dashed ">
+                            <div className="flex items-center gap-1">
+                                <LuCalendar className="text-black"/>
+                                <p className="text-zinc-600">{new Date(note.createdAt).toLocaleDateString()}</p>
+                            </div>
+
+                            <div className="flex items-center gap-1">
+                                <LuClock className="text-black"/>
+                                <p className="text-zinc-600">{new Date(note.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
+                            </div>
                         </div>
+
+                        <h2 className="text-xl pt-5 font-bold text-zinc-700 pr-5">{note.title}</h2>
+
                         <p className="mt-2 text-gray-600">{note.content}</p>
                     </div>
                 ))}

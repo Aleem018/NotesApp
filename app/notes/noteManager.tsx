@@ -3,13 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { LuCalendar, LuClock } from "react-icons/lu";
-
-interface Note {
-    id: number;
-    title: string;
-    content: string;
-    createdAt: Date;
-}
+import NoteCard, { Note } from "./noteCard";
 
 export default function NoteManager({ notes }: { notes: Note[] }) {
     const [selectedIds, setSelectedIds] = useState<number[]>([]);
@@ -77,34 +71,11 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
             {/* Responsive Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {notes?.map((note) => (
-                    <div
-                        key={note.id}
-                        className="border p-4 rounded-md bg-white relative"
-                    >
-                        {/* Checkbox for selection */}
-                        <input
-                            type="checkbox"
-                            checked={selectedIds.includes(note.id)}
-                            onChange={() => toggleSelection(note.id)}
-                            className="absolute top-4 right-4 w-5 h-5 cursor-pointer"
-                        />
-
-                        <div className="flex mr-6 pb-2 text-sm justify-between border-b-3 border-dashed ">
-                            <div className="flex items-center gap-1">
-                                <LuCalendar className="text-black"/>
-                                <p className="text-zinc-600">{new Date(note.createdAt).toLocaleDateString()}</p>
-                            </div>
-
-                            <div className="flex items-center gap-1">
-                                <LuClock className="text-black"/>
-                                <p className="text-zinc-600">{new Date(note.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
-                            </div>
-                        </div>
-
-                        <h2 className="text-xl pt-5 font-bold text-zinc-700 pr-5">{note.title}</h2>
-
-                        <p className="mt-2 text-gray-600">{note.content}</p>
-                    </div>
+                    <NoteCard 
+                    key={note.id}
+                    note={note}
+                    isSelected={selectedIds.includes(note.id)}
+                    onToggleSelect={toggleSelection}/>
                 ))}
             </div>
         </div>

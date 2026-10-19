@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { LuCalendar, LuClock } from "react-icons/lu";
 import NoteCard, { Note } from "./noteCard";
 
 export default function NoteManager({ notes }: { notes: Note[] }) {

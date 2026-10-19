@@ -46,7 +46,7 @@ export default function CreateNoteForm() {
 
     return (
 
-        <div className="flex flex-col gap-10 bg-[linear-gradient(58deg,_#dfff00,_black_51%)] sm:bg-[linear-gradient(38deg,_#dfff00,_black_32%)] lg:bg-gradient-to-tr lg:from-[#dfff00] lg:to-[40%] lg:to-black items-center sm:pt-5 lg:pt-10 pt-2 pb-25">
+        <div className="flex flex-col gap-10 bg-[linear-gradient(58deg,_#dfff00,_black_51%)] sm:bg-[linear-gradient(38deg,_#dfff00,_black_32%)] lg:bg-gradient-to-tr lg:from-[#dfff00] lg:to-[40%] lg:to-black items-center sm:pt-5 lg:pt-10 pt-2 pb-35">
             
             <div className="flex flex-col shadow-xl bg-[linear-gradient(58deg,_#dfff00,_#18181b_45%)] sm:bg-[linear-gradient(40deg,_#dfff00,_#18181b_17%)] lg:bg-gradient-to-tr lg:from-[#dfff00] lg:from-[0%] lg:to-[17%] lg:to-zinc-900 sm:flex-row lg:flex-row rounded-3xl sm:w-165 lg:w-220">
                 <div className="flex flex-col gap-5 m-10 lg:ml-17 lg:mr-17 lg:mb-5 lg:mt-5">

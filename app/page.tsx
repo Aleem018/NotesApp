@@ -106,7 +106,7 @@ export default function Home() {
                         className="border border-zinc-300 rounded-md h-10 p-3 text-black
                         outline-none focus:ring-2 focus:ring-blue-500 focus:border-purple-500"
                     />
-                    <a href="" className="text-blue-800 text-sm font-bold hover:text-violet-600">Forgot Password?</a>
+                    <a href="./forgot-password" className="text-blue-800 text-sm font-bold hover:text-violet-600">Forgot Password?</a>
                     <button
                         type="submit"
                         disabled={isSubmitting}

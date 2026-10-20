@@ -48,7 +48,7 @@ export default function ResetForm({ token }: { token: string }) {
         <form onSubmit={handleSubmit}
         className="flex flex-col bg-white gap-4 max-w-sm shadow-xl mx-auto my-auto p-10 rounded-xl"
         >
-            <h1 className="text-2xl mb-5 text-center text-black">Create a new password</h1>
+            <h1 className="text-2xl text-center text-black">Create a new password</h1>
             <input type="password" 
             required
             minLength={8}
@@ -72,7 +72,7 @@ export default function ResetForm({ token }: { token: string }) {
             {error && <p className="text-red-500">{error}</p>}
             <button
             type="submit"
-            className="mt-5 bg-blue-700 rounded-xl px-4 py-2 hover:shadow-xl hover:cursor-pointer hover:bg-violet-900 disabled:bg-gray-400"
+            className="mt-3 bg-blue-700 rounded-xl px-4 py-2 hover:shadow-xl hover:cursor-pointer hover:bg-violet-900 disabled:bg-gray-400"
             >
                 {isSubmitting ? "Updating..." : "Reset password"}
             </button>

@@ -37,7 +37,6 @@ export default async function NotesDisplay() {
     }
 
     const data = await response.json();
-    console.log("What did C# actually send?", data);
 
     const notes: Note[] = data;
 

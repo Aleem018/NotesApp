@@ -30,9 +30,9 @@ export default function ForgotPasswordPage()
     if (submitted)
     {
         return (
-            <p>
+            <p className="flex flex-col mx-auto my-auto text-black">
                 If an account exists for that email, we've sent a resent link.{" "}
-                <Link href="/" className="underline">Back to login</Link>
+                <Link href="/" className="underline text-center">Back to login</Link>
             </p>
         );
     }

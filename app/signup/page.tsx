@@ -9,6 +9,7 @@ export default function Signup() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
@@ -120,7 +121,7 @@ export default function Signup() {
                 </div>
                 <div className="flex items-center gap-8">
                     <input
-                        type={showPassword ? 'text' : 'password'}
+                        type={showConfirmPassword ? 'text' : 'password'}
                         name=""
                         id=""
                         placeholder="Confirm Password"
@@ -131,11 +132,11 @@ export default function Signup() {
                     />
                     <button
                         type="button"
-                        onClick={() => setShowPassword(!showPassword)}
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                         style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                        aria-label={showPassword ? "Hide password" : "Show password"}
+                        aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                     >
-                        {showPassword ? <FaEyeSlash className="text-gray-500" size={20} /> : <FaEye className="text-gray-500" size={20} />}
+                        {showConfirmPassword ? <FaEyeSlash className="text-gray-500" size={20} /> : <FaEye className="text-gray-500" size={20} />}
                     </button>
                 </div>
                 {error && <p style={{ color: 'red', fontSize: '14px' }}>{error}</p>}

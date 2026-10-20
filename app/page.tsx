@@ -53,8 +53,8 @@ export default function Home() {
         }
     }
     return (
-        <div className="flex bg-white mx-auto my-auto shadow-xl rounded-lg">
-            <div className="flex flex-col p-5 bg-[url('/ceo1.jpg')] bg-cover bg-center bg-no-repeat rounded-l-lg">
+        <div className="flex max-sm:flex-col bg-white mx-auto my-auto shadow-xl rounded-lg">
+            <div className="flex max-sm:h-dvh max-sm:w-full max-sm:rounded-none flex-col p-5 bg-[url('/ceo1.jpg')] bg-cover bg-center bg-no-repeat rounded-l-lg">
                 <div className="flex items-center gap-1">
                     <TbNotebook className="text-xl" />
                     <h1 className="text-white text-xl">
@@ -73,7 +73,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col gap-5 pr-40 pl-40 pt-25 pb-25">
+            <div className="flex flex-col gap-5 pr-40 pl-40 pt-25 pb-25 max-sm:px-20 max-sm:py-55 max-sm:bg-[#e2e2e7] max-md:px-30 max-md:py-20">
                 <div className="flex flex-col gap-2 max-w-3xs">
                     <h1 className="text-black text-xl text-center font-bold">
                         Welcome back to Noteus
@@ -106,7 +106,7 @@ export default function Home() {
                         className="border border-zinc-300 rounded-md h-10 p-3 text-black
                         outline-none focus:ring-2 focus:ring-blue-500 focus:border-purple-500"
                     />
-                    <a href="./forgot-password" className="text-blue-800 text-sm font-bold hover:text-violet-600">Forgot Password?</a>
+                    <a href="./forgot-password" className="text-blue-800 text-sm font-bold hover:text-violet-700">Forgot Password?</a>
                     <button
                         type="submit"
                         disabled={isSubmitting}

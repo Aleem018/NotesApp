@@ -119,9 +119,9 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
                             </div>
                         </div>
 
-                        <h2 className="text-xl pt-5 font-bold text-zinc-700 pr-5">{note.title}</h2>
+                        <h2 className="text-xl pt-5 font-bold text-zinc-700 pr-5 break-words">{note.title}</h2>
 
-                        <p className="mt-2 text-gray-600">{note.content}</p>
+                        <p className="mt-2 text-gray-600 break-words">{note.content}</p>
 
                     </div>
                     <button

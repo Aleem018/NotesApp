@@ -43,6 +43,11 @@ export default function Home() {
                 router.push("/signup");
                 return;
             }
+            if (response.status === 401)
+            {
+                alert("Wrong password!");
+                return;
+            }
 
             setError("Invalid email or password");
         } catch (error) {

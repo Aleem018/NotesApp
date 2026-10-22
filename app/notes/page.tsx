@@ -1,8 +1,7 @@
-import CreateNoteForm from "./form";
 import NoteManager from "./noteManager";
-import LogoutBtn from "./logoutBtn";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { HiOutlinePlus } from "react-icons/hi";
 
 interface Note {
     title: string;
@@ -33,7 +32,7 @@ export default async function NotesDisplay() {
     }
 
     if (!response.ok) {
-        return <div>Failed to load notes.</div>
+        return <div className="text-black mx-auto my-auto border p-5">Failed to load notes.</div>
     }
 
     const data = await response.json();
@@ -42,15 +41,12 @@ export default async function NotesDisplay() {
 
     return (
         <main>
-            <div className="flex items-center justify-center bg-black p-10">
-                <h1 className="text-3xl font-bold bg-black text-center p-10">Note-taking App</h1>
-                <LogoutBtn />
-            </div>
-            <CreateNoteForm />
-            <div className="p-8">
+            <div className="p-8 bg-[url('/notebg.jpg')] min-h-screen bg-[length:100%_auto] bg-repeat-y">
 
-                <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
-
+                <div className="flex border-b justify-between items-center">
+                    <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
+                    <a href="./create-note" className="flex p-2 border border-white rounded-xl items-center text-black bg-white gap-1 hover:shadow-xl">Add a Note <HiOutlinePlus className="h-8 w-8"/></a>
+                </div>
 
                 <NoteManager notes={notes} />
 

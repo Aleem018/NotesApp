@@ -105,7 +105,7 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
                     </div>
                 </div>
             ) : (
-                <>
+                <div className="">
                     <div className="pb-7">
                         <div className="flex mr-6 pb-2 text-sm justify-between border-b-3 border-dashed ">
                             <div className="flex items-center gap-1">
@@ -130,7 +130,7 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
                     >
                         Edit
                     </button>
-                </>
+                </div>
             )}
         </div>
     )

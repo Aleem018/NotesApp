@@ -45,7 +45,7 @@ export default async function NotesDisplay() {
 
                 <div className="flex border-b justify-between items-center">
                     <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
-                    <a href="./create-note" className="flex p-2 border border-white rounded-xl items-center text-black bg-white gap-1 hover:shadow-xl">Add a Note <HiOutlinePlus className="h-8 w-8"/></a>
+                    <a href="./create-note" className="flex p-2 border border-white rounded-xl items-center text-black bg-white gap-1 hover:shadow-xl">Add a Note <HiOutlinePlus className="h-6 w-6"/></a>
                 </div>
 
                 <NoteManager notes={notes} />

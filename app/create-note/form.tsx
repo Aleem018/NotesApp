@@ -35,6 +35,7 @@ export default function CreateNoteForm() {
             setContent("");
 
             // 2. re-run your server component to fetch the updated list
+            router.push("/notes");
             router.refresh();
         } catch (error) {
             console.error("Failed to post data:", error);

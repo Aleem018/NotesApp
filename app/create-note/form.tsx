@@ -47,9 +47,9 @@ export default function CreateNoteForm() {
 
     return (
 
-        <div className="flex flex-col gap-10 bg-[linear-gradient(58deg,_#dfff00,_black_51%)] sm:bg-[linear-gradient(38deg,_#dfff00,_black_32%)] lg:bg-gradient-to-tr lg:from-[#dfff00] lg:to-[40%] lg:to-black items-center sm:pt-5 lg:pt-10 pt-2 pb-35">
+        <div className="flex flex-col gap-10 items-center sm:pt-5 lg:pt-10 pt-2 pb-10">
             
-            <div className="flex flex-col shadow-xl bg-[linear-gradient(58deg,_#dfff00,_#18181b_45%)] sm:bg-[linear-gradient(40deg,_#dfff00,_#18181b_17%)] lg:bg-gradient-to-tr lg:from-[#dfff00] lg:from-[0%] lg:to-[17%] lg:to-zinc-900 sm:flex-row lg:flex-row rounded-3xl sm:w-165 lg:w-220">
+            <div className="flex flex-col shadow-xl bg-[linear-gradient(58deg,_#dfff00,_#18181b_45%)] sm:bg-[linear-gradient(40deg,_#dfff00,_#18181b_17%)] lg:bg-gradient-to-tr lg:from-[#dfff00] lg:from-[0%] lg:to-[22%] lg:to-zinc-900 sm:flex-row lg:flex-row rounded-3xl sm:w-160 lg:w-220">
                 <div className="flex flex-col gap-5 m-10 lg:ml-17 lg:mr-17 lg:mb-5 lg:mt-5">
                     <h1 className="text-2xl sm:text-3xl lg:text-3xl text-center">
                         Create a Note
@@ -61,7 +61,7 @@ export default function CreateNoteForm() {
                         alt=""
                         className="" />
                 </div>
-                <form onSubmit={handleSUbmit} className="flex flex-col bg-white gap-5 max-w-md sm:w-150 lg:w-200 rounded-3xl p-7">
+                <form onSubmit={handleSUbmit} className="flex flex-col bg-white gap-5 max-w-md sm:w-120 lg:w-200 rounded-3xl p-7">
                     <div className="flex flex-col gap-1.5">
                         <label htmlFor="note-title" className="text-zinc-700 text-sm">
                             Your note title
@@ -72,6 +72,7 @@ export default function CreateNoteForm() {
                             placeholder="Note Title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
+                            maxLength={100}
                             required
                             className="border border-zinc-300 p-2 rounded-xl text-black bg-zinc-100"
                         />
@@ -86,6 +87,7 @@ export default function CreateNoteForm() {
                             placeholder="Note Content"
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
+                            maxLength={10000}
                             required
                             className="border border-zinc-300 p-2 rounded-xl text-black h-35 bg-zinc-100"
                         />

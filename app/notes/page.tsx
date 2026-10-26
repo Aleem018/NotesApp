@@ -1,4 +1,5 @@
 import NoteManager from "./noteManager";
+import LogoutBtn from "./logoutBtn";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { HiOutlinePlus } from "react-icons/hi";
@@ -41,11 +42,14 @@ export default async function NotesDisplay() {
 
     return (
         <main>
-            <div className="p-8 bg-[url('/notebg.jpg')] min-h-screen bg-[length:100%_auto] bg-repeat-y">
+            <div className="p-8 bg-[url('/notebg-3.jpg')] min-h-screen bg-[length:100%_auto] bg-repeat-y">
 
                 <div className="flex border-b justify-between items-center">
                     <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
-                    <a href="./create-note" className="flex p-2 border border-white rounded-xl items-center text-black bg-white gap-1 hover:shadow-xl">Add a Note <HiOutlinePlus className="h-6 w-6"/></a>
+                    <div className="flex mb-8">
+                        <a href="./create-note" className="flex p-2 border border-teal-500 rounded-xl items-center text-black bg-green-500 gap-1 hover:shadow-xl mr-20">Add a Note <HiOutlinePlus className="h-6 w-6 hover:animate-[spin_1s_linear_1]" /></a>
+                        <LogoutBtn />
+                    </div>
                 </div>
 
                 <NoteManager notes={notes} />

@@ -78,7 +78,7 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        maxLength={200}
+                        maxLength={100}
                         className="border border-zinc-300 p-2 rounded-xl text-black bg-zinc-100"
                     />
                     <textarea

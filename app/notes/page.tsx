@@ -3,6 +3,8 @@ import LogoutBtn from "./logoutBtn";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { HiOutlinePlus } from "react-icons/hi";
+import Image from "next/image";
+import backgroundImage from "@/public/notebg.jpg";
 
 interface Note {
     title: string;
@@ -42,12 +44,24 @@ export default async function NotesDisplay() {
 
     return (
         <main>
-            <div className="p-8 bg-[url('/notebg-3.jpg')] min-h-screen bg-[length:100%_auto] bg-repeat-y">
+            <div className="fixed inset-0 -z-5 overflow-hidden opacity-40">
+                <Image 
+                src={backgroundImage}
+                alt="background image"
+                placeholder="blur"
+                quality={75}
+                fill
+                sizes="100vw"
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                priority
+                />
+            </div>
+            <div className="p-8 bg-cover bg-center min-h-screen">
 
                 <div className="flex border-b justify-between items-center">
                     <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
                     <div className="flex mb-8">
-                        <a href="./create-note" className="flex p-2 border border-teal-500 rounded-xl items-center text-black bg-green-500 gap-1 hover:shadow-xl mr-20">Add a Note <HiOutlinePlus className="h-6 w-6 hover:animate-[spin_1s_linear_1]" /></a>
+                        <a href="./create-note" className="flex p-2 border border-zinc-400 bg- rounded-xl items-center text-black backdrop-blur gap-1 transition-transform hover:shadow-xl hover:bg-teal-500 hover:-translate-y-1 mr-20">Add a Note <HiOutlinePlus className="h-6 w-6 hover:animate-[spin_1s_linear_1]" /></a>
                         <LogoutBtn />
                     </div>
                 </div>

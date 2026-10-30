@@ -10,7 +10,7 @@ interface Note {
     title: string;
     content: string;
     id: number;
-    createdAt: Date;
+    createdAt: string;
 }
 
 export default async function NotesDisplay() {
@@ -22,13 +22,12 @@ export default async function NotesDisplay() {
         redirect("/");
     }
 
-    const response = await fetch("http://localhost:5204/api/notesapi", {
+    const response = await fetch(`${process.env.API_URL}/api/notesapi`, {
         cache: 'no-cache', // This ensures Next.js doesn't cache stale data
         headers: {
             'Authorization': `Bearer ${token}`
         }
     });
-    console.log("STATUS:", response.status, response.statusText, response.headers.get("www-authenticate"));
 
     if (response.status === 401) {
         redirect("/");

@@ -26,7 +26,7 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
             // fire off a DELETE request for every selected ID concurrently
             const responses = await Promise.all(
                 selectedIds.map((id) =>
-                    fetch(`http://localhost:5204/api/notesapi/${id}`, {
+                    fetch(`/api/notesapi/${id}`, {
                         method: "DELETE",
                         credentials: "include"
                     })

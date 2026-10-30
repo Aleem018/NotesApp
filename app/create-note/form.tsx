@@ -16,7 +16,7 @@ export default function CreateNoteForm() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("http://localhost:5204/api/notesapi", {
+            const response = await fetch("/api/notesapi", {
                 method: "POST", // This tells the server i'm sending data IMPORTANT
                 credentials: 'include',
                 headers: {

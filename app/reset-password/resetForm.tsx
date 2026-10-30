@@ -21,7 +21,7 @@ export default function ResetForm({ token }: { token: string }) {
 
         setIsSubmitting(true);
         try {
-            const response = await fetch("http://localhost:5204/api/auth/reset-password", {
+            const response = await fetch("/api/auth/reset-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ Token: token, NewPassword: password }),

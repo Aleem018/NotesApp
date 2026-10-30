@@ -27,7 +27,7 @@ export default function Signup() {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("http://localhost:5204/api/auth/register", {
+            const response = await fetch("/api/auth/register", {
                 method: "POST",
                 credentials: "include",
                 headers: {

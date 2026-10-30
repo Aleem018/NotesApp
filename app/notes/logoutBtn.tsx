@@ -12,7 +12,7 @@ export default function LogoutBtn ()
         setIsLoggingOut(true);
 
         try{
-            await fetch("http://localhost:5204/api/auth/logout", {
+            await fetch("/api/auth/logout", {
                 method: "POST",
                 credentials: "include",
             });

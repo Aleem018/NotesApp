@@ -9,7 +9,7 @@ export interface Note {
     id: number;
     title: string;
     content: string;
-    createdAt: Date;
+    createdAt: string;
 }
 
 interface NoteCardProps {
@@ -40,7 +40,7 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
         setIsSaving(true);
 
         try {
-            const response = await fetch(`http://localhost:5204/api/notesapi/${note.id}`, {
+            const response = await fetch(`/api/notesapi/${note.id}`, {
                 method: "PUT",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },

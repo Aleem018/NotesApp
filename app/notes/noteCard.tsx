@@ -70,7 +70,7 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
                 type="checkbox"
                 checked={isSelected}
                 onChange={() => onToggleSelect(note.id)}
-                className="absolute top-4 right-4 w-5 h-5 cursor-pointer" />
+                className="absolute top-4 right-4 w-5 h-5 cursor-pointer max-sm:w-4 max-sm:h-4" />
 
             {isEditing ? (
                 <div className="flex flex-col gap-3 pr-8">
@@ -107,7 +107,7 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
             ) : (
                 <div className="">
                     <div className="pb-7">
-                        <div className="flex mr-6 pb-2 text-sm justify-between border-b-3 border-dashed ">
+                        <div className="flex mr-6 pb-2 text-sm justify-between border-b-3 border-dashed max-sm:text-xs">
                             <div className="flex items-center gap-1">
                                 <LuCalendar className="text-black" />
                                 <p className="text-zinc-600">{new Date(note.createdAt).toLocaleDateString()}</p>
@@ -119,14 +119,14 @@ export default function NoteCard({ note, isSelected, onToggleSelect }: NoteCardP
                             </div>
                         </div>
 
-                        <h2 className="text-xl pt-5 font-bold text-zinc-700 pr-5 break-words">{note.title}</h2>
+                        <h2 className="text-xl pt-5 font-bold text-zinc-700 pr-5 break-words max-sm:text-md max-sm:pt-3">{note.title}</h2>
 
-                        <p className="mt-2 text-gray-600 break-words">{note.content}</p>
+                        <p className="mt-2 text-gray-600 break-words max-sm:text-sm max-sm:mt-1">{note.content}</p>
 
                     </div>
                     <button
                         onClick={startEditing}
-                        className="absolute bottom-4 left-4 text-sm text-green-500 underline cursor-pointer"
+                        className="absolute bottom-4 left-4 text-sm text-green-500 underline cursor-pointer max-sm:bottom-3"
                     >
                         Edit
                     </button>

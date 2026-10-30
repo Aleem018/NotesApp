@@ -55,12 +55,12 @@ export default async function NotesDisplay() {
                 priority
                 />
             </div>
-            <div className="p-8 bg-cover bg-center min-h-screen">
+            <div className="p-8 bg-cover bg-center min-h-screen max-sm:p-5">
 
                 <div className="flex border-b justify-between items-center">
-                    <h1 className="text-3xl text-black font-bold mb-8">Your Notes</h1>
-                    <div className="flex mb-8">
-                        <a href="./create-note" className="flex p-2 border border-zinc-400 bg- rounded-xl items-center text-black backdrop-blur gap-1 transition-transform hover:shadow-xl hover:bg-teal-500 hover:-translate-y-1 mr-20">Add a Note <HiOutlinePlus className="h-6 w-6 hover:animate-[spin_1s_linear_1]" /></a>
+                    <h1 className="text-3xl text-black font-bold mb-8 max-sm:text-xl">Your Notes</h1>
+                    <div className="flex mb-8 max-sm:mb-5">
+                        <a href="./create-note" className="flex p-2 border border-zinc-400 rounded-xl items-center text-black backdrop-blur gap-1 transition-transform hover:shadow-xl hover:bg-teal-500 hover:-translate-y-1 mr-20 max-sm:text-sm max-sm:px-1.5 max-sm:py-1 max-sm:rounded-md max-sm:mr-18">Add a Note <HiOutlinePlus className="h-6 w-6 hover:animate-[spin_1s_linear_1]" /></a>
                         <LogoutBtn />
                     </div>
                 </div>

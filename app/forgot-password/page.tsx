@@ -38,10 +38,10 @@ export default function ForgotPasswordPage()
     }
 
     return(
-        <form onSubmit={handleSubmit} className="flex flex-col bg-white gap-4 max-w-sm shadow-xl mx-auto my-auto p-10 rounded-xl">
+        <form onSubmit={handleSubmit} className="flex flex-col bg-white gap-4 max-w-sm shadow-xl mx-auto my-auto p-10 rounded-xl max-sm:max-w-xs max-sm:gap-3">
             <FaLock className="text-violet-800 mx-auto h-8 w-8 border border-zinc-300 rounded-md p-1"/>
-            <h1 className="text-2xl text-center text-black">Forgot your password?</h1>
-            <p className="text-zinc-700 text-center mb-5 text-sm">A link will be sent to your email to help reset your password</p>
+            <h1 className="text-2xl text-center text-black max-sm:text-xl">Forgot your password?</h1>
+            <p className="text-zinc-700 text-center mb-5 text-sm max-sm:mb-4">A link will be sent to your email to help reset your password</p>
             <input 
             type="email"
             placeholder="Your email"
@@ -53,7 +53,7 @@ export default function ForgotPasswordPage()
                         outline-none focus:ring-2 focus:ring-blue-500 focus:border-purple-500"
              />
             <button type="submit" disabled={isSubmitting} 
-            className="mt-5 bg-blue-700 rounded-xl px-4 py-2 hover:shadow-xl hover:cursor-pointer hover:bg-violet-900 disabled:bg-gray-400"
+            className="mt-5 bg-blue-700 rounded-xl px-4 py-2 hover:shadow-xl hover:cursor-pointer hover:bg-violet-900 disabled:bg-gray-400 max-sm:mt-4"
             >
                 {isSubmitting ? "Sending..." : "Send reset link"}
             </button>

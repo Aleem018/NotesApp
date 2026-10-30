@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,19 @@ export default function Home() {
     const [error, setError] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
 
+    const targetSectionRef = useRef<HTMLDivElement>(null);
+
     const router = useRouter();
+
+    useEffect(() => {
+        if (targetSectionRef.current)
+        {
+            targetSectionRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -78,7 +90,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col gap-5 pr-40 pl-40 pt-25 pb-25 max-sm:px-20 max-sm:py-55 max-sm:bg-[#e2e2e7] max-md:px-30 max-md:py-20">
+            <div className="flex flex-col gap-5 pr-40 pl-40 pt-25 pb-25 max-sm:px-20 max-sm:py-55 max-sm:bg-[#e2e2e7] max-md:px-30 max-md:py-20" ref={targetSectionRef}>
                 <div className="flex flex-col gap-2 max-w-3xs">
                     <h1 className="text-black text-xl text-center font-bold">
                         Welcome back to Noteus

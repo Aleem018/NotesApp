@@ -55,12 +55,12 @@ export default function NoteManager({ notes }: { notes: Note[] }) {
     return (
         <div>
             {/* Delete Button */}
-            <div className="mb-4 h-10">
+            <div className="mb-4 mt-4 h-10">
                 {selectedIds.length > 0 && (
                     <button
                         onClick={handleDelete}
                         disabled={isDeleting}
-                        className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 hover:cursor-pointer disabled:bg-gray-400"
+                        className="bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 hover:cursor-pointer disabled:bg-gray-400 max-sm:px-2.5 max-sm:py-2 max-sm:text-sm max-sm:rounded-md"
                     >
                         {isDeleting ? "Deleting..." : `Delete Selected (${selectedIds.length})`}
                     </button>
